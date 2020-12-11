@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Tracker</title>
+    <meta name="description" content="My Transaction Tracker Using HTML, CSS, JS">
+    <link rel="stylesheet" href="style.css">
+    <script src="./app.js" defer></script>
+    <link rel="icon" href="images/tt-favicon.png">
+</head>
+<body>
+    <h1 id="title">Transaction Tracker</h1>
+    <p>Balance: <span id="balance-span">0</span></p>
+    <div class="section-columns">
+        <div class="transaction-list-section">
+            <p class="sec-heading">Transation List:</p>
+            <div>
+                <ul id="transaction-list"></ul>
+            </div>
+        </div>
+        <div class="transaction-input-section">
+            <input type="text" name="item-name" id="item-text-input" placeholder="Enter item name...">
+            <input type="number" name="item-amount" id="item-amount-input" placeholder="Enter item amount...">
+            <button id="income-btn">+</button>
+            <button id="expense-btn">-</button>
+        </div>
+    </div>
+</body>
+</html>
