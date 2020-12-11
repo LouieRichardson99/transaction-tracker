@@ -5,19 +5,20 @@ let transactionAmountInput = document.getElementById('item-amount-input');
 
 let transactionType, 
     transactionName, 
-    transactionAmount, 
-    transactionArray = [],
-    transactionId = 1;
-    balance = 0;
+    transactionAmount,
+    transactionId = 1,
+    balance = 0,
+    currentTransaction;
 
 class Transaction {
     constructor(name, amount) {
         this.Transaction_Name = name,
         this.Transaction_Amount = amount,
-        this.Transaction_Date = new Date();
-        this.Transaction_ID = transactionId++
+        this.Transaction_Date = new Date(),
+        this.Transaction_ID = transactionId++,
+        this.Transaction_Type = transactionType;
     }
-}
+};
 
 let incomeButton = document
     .getElementById('income-btn')
@@ -54,39 +55,48 @@ function setTransactionAmount() {
 };
 
 function createTransactionObject() {
-    let transaction = new Transaction(transactionName, transactionAmount);
-    transactionArray.push(transaction);
+    currentTransaction = new Transaction(transactionName, transactionAmount);
     
     if (transactionType == 'income') {
         balance += Number(transactionAmount);
-    } else {
+        balanceDisplay.textContent = balance;
+    } else if (transactionType == 'expense') {
         balance -= Number(transactionAmount);
+        balanceDisplay.textContent = balance;
     }
 
-    console.log(transactionArray)
-
-    return transaction,
+    return currentTransaction,
     createTransactionElement();
 };
 
 function createTransactionElement() {
+    let transactionInfo = {...currentTransaction};
     let newDiv = document.createElement('div');
     let newItemName = document.createElement('p');
     let newItemAmount = document.createElement('p');
     let newDelButton = document.createElement('button');
+    let newMoreButton = document.createElement('button');
 
     newItemName.textContent = transactionName;
     newItemAmount.textContent = transactionAmount;
     newDelButton.textContent = 'Delete';
+    newMoreButton.textContent = 'More Info';
 
     transactionList.appendChild(newDiv);
     newDiv.appendChild(newItemName);
     newDiv.appendChild(newItemAmount);
     newDiv.appendChild(newDelButton);
+    newDiv.appendChild(newMoreButton);
 
     newDelButton.addEventListener('click', deleteParent);
 
     function deleteParent() {
+        if (transactionInfo.Transaction_Type == 'income') {
+            balance -= Number(transactionInfo.Transaction_Amount);
+        } else if (transactionInfo.Transaction_Type == 'expense') {
+            balance += Number(transactionInfo.Transaction_Amount);
+        }
+        balanceDisplay.textContent = balance;
         newDelButton.parentElement.remove();
     }
 };
