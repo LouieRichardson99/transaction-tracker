@@ -2,7 +2,6 @@ let balanceDisplay = document.getElementById('balance-span');
 let transactionList = document.getElementById('transaction-list');
 let transactionNameInput = document.getElementById('item-text-input');
 let transactionAmountInput = document.getElementById('item-amount-input');
-let modalArea = document.getElementById('modal-area');
 
 let transactionType, 
     transactionName, 
@@ -60,10 +59,10 @@ function createTransactionObject() {
     
     if (transactionType == 'income') {
         balance += Number(transactionAmount);
-        balanceDisplay.textContent = balance;
+        balanceDisplay.textContent = '£' + balance;
     } else if (transactionType == 'expense') {
         balance -= Number(transactionAmount);
-        balanceDisplay.textContent = balance;
+        balanceDisplay.textContent = '£' + balance;
     }
 
     return currentTransaction,
@@ -78,8 +77,8 @@ function createTransactionElement() {
     let newDelButton = document.createElement('button');
     let newMoreButton = document.createElement('button');
 
-    newItemName.textContent = transactionName;
-    newItemAmount.textContent = transactionAmount;
+    newItemName.textContent = 'Transaction Name: ' + transactionName;
+    newItemAmount.textContent = 'Transaction Amount: ' + transactionAmount;
     newDelButton.textContent = 'Delete';
     newMoreButton.textContent = 'More Info';
 
@@ -104,24 +103,20 @@ function createTransactionElement() {
         } else if (transactionInfo.Transaction_Type == 'expense') {
             balance += Number(transactionInfo.Transaction_Amount);
         }
-        balanceDisplay.textContent = balance;
+        balanceDisplay.textContent = '£' + balance;
         newDelButton.parentElement.remove();
     }
 
     function displayModalInfo() {
         let newShowMoreDiv = document.createElement('div');
-        let newTranAmtTxt = document.createElement('p');
         let newTranDateTxt = document.createElement('p');
         let newTranIdTxt = document.createElement('p');
-        let newTranNameTxt = document.createElement('p');
         let newTranTypeTxt = document.createElement('p');
         let newCloseBtn = document.createElement('button');
 
-        newTranAmtTxt.textContent = transactionInfo.Transaction_Amount;
-        newTranDateTxt.textContent = transactionInfo.Transaction_Date;
-        newTranIdTxt.textContent = transactionInfo.Transaction_ID;
-        newTranNameTxt.textContent = transactionInfo.Transaction_Name;
-        newTranTypeTxt.textContent = transactionInfo.Transaction_Type;
+        newTranDateTxt.textContent = 'Transaction Date: ' + transactionInfo.Transaction_Date;
+        newTranIdTxt.textContent = 'Transaction ID: ' + transactionInfo.Transaction_ID;
+        newTranTypeTxt.textContent = 'Transaction Type: ' + transactionInfo.Transaction_Type;
         newCloseBtn.textContent = 'Close';
 
         newCloseBtn.addEventListener('click', closeShowMore);
@@ -130,21 +125,16 @@ function createTransactionElement() {
             newCloseBtn.parentElement.remove();
         };
 
-        modalArea.appendChild(newShowMoreDiv);
-        newShowMoreDiv.appendChild(newTranNameTxt);
+        newTranDiv.appendChild(newShowMoreDiv);
         newShowMoreDiv.appendChild(newTranTypeTxt);
-        newShowMoreDiv.appendChild(newTranAmtTxt);
         newShowMoreDiv.appendChild(newTranDateTxt);
         newShowMoreDiv.appendChild(newTranIdTxt);
         newShowMoreDiv.appendChild(newCloseBtn);
 
-        modalArea.classList.add('modal-div');
-        newTranNameTxt.classList.add('tran-name-txt');
+        newShowMoreDiv.classList.add('show-more-div');
         newTranTypeTxt.classList.add('tran-type-txt');
-        newTranAmtTxt.classList.add('tran-amt-txt');
         newTranDateTxt.classList.add('tran-date-txt');
         newTranIdTxt.classList.add('tran-id-txt');
-        newCloseBtn.classList.add('modal-close-btn');
+        newCloseBtn.classList.add('show-more-close-btn');
     };
 };
-
