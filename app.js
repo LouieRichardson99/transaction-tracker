@@ -94,9 +94,8 @@ function createTransactionElement() {
     newDelButton.classList.add('tran-item-del-btn');
     newMoreButton.classList.add('tran-item-more-btn');
 
-
     newDelButton.addEventListener('click', deleteParent);
-    newMoreButton.addEventListener('click', displayModalInfo);
+    newMoreButton.addEventListener('click', displayMoreInfo);
 
     function deleteParent() {
         if (transactionInfo.Transaction_Type == 'income') {
@@ -108,7 +107,7 @@ function createTransactionElement() {
         newDelButton.parentElement.remove();
     }
 
-    function displayModalInfo() {
+    function displayMoreInfo() {
         let newShowMoreDiv = document.createElement('div');
         let newTranDateTxt = document.createElement('p');
         let newTranIdTxt = document.createElement('p');
@@ -126,6 +125,7 @@ function createTransactionElement() {
             newCloseBtn.parentElement.remove();
         };
 
+        if (newTranDiv.childElementCount <= 4) {
         newTranDiv.appendChild(newShowMoreDiv);
         newShowMoreDiv.appendChild(newTranTypeTxt);
         newShowMoreDiv.appendChild(newTranDateTxt);
@@ -137,5 +137,6 @@ function createTransactionElement() {
         newTranDateTxt.classList.add('tran-date-txt');
         newTranIdTxt.classList.add('tran-id-txt');
         newCloseBtn.classList.add('show-more-close-btn');
+        }
     };
 };
