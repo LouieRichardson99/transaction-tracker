@@ -6,11 +6,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.sec-heading {
-    margin: 1rem 0 -1rem 0;
-    text-align: center;
-}
-
 /* Balance Section */
 .balance-text {
     margin: 1rem 0 1rem 0;
@@ -39,7 +34,7 @@
     margin: 0 0 .5rem 0;
     width: 20rem;
     height: 2rem;
-    background-color: #e6e6e6;
+    background-color: #f1f1f1;
     border: none;
     text-indent: 5px;
     font-family: 'Open Sans', sans-serif;
@@ -57,7 +52,7 @@
     margin: 0 0 .5rem 0;
     width: 20rem;
     height: 2rem;
-    background-color: #e6e6e6;
+    background-color: #f1f1f1;
     border: none;
     font-family: 'Open Sans', sans-serif;
     font-size: .8rem;
@@ -113,59 +108,83 @@ input[type=number] {
     color: white;
 }
 
+.sec-heading {
+    margin: 1rem 0 -1rem 0;
+    text-align: center;
+}
 
 /* Transaction Element */ 
 .tran-item-div {
-    background-color: #e6e6e6;
+    padding: 1rem;
+    background-color: #f1f1f1;
     width: 25rem;
     border-radius: 5px;
-    margin: 30px 0 30px 0;
+    margin: 30px 0 -20px 0;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .tran-item-name {
-
+    margin: 0 0 0.3rem 0;
+    font-size: 0.9rem;
 }
 
 .tran-item-amt {
-
+    margin: 0 0 0.3rem 0;
+    font-size: 0.9rem;
 }
 
 .tran-item-del-btn {
+    background-color: #ec7063;
+    border: none;
+    padding: 0.3rem;
+    color: white;
+    border-radius: 5px;
+    margin: 0.3rem 0.5rem 0 0rem;
+    font-size: 0.8rem;
+}
 
+.tran-item-del-btn:hover {
+    background-color: #db5e50;
 }
 
 .tran-item-more-btn {
+    background-color: #58d68d;
+    border: none;
+    padding: 0.3rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
 
+.tran-item-more-btn:hover {
+    background-color: #45b875;
 }
 
 /* Show More Section */
 .show-more-div {
-
-}
-
-.tran-name-txt {
-
+    font-size: 0.9rem;
 }
 
 .tran-type-txt {
+    margin: .5rem 0 .5rem 0;
     text-transform: capitalize;
 }
 
-.tran-amt-txt {
-
-}
-
 .tran-date-txt {
-
+    margin: .5rem 0 .5rem 0;
 }
 
 .tran-id-txt {
-
+    margin: .5rem 0 .5rem 0;
 }
 
 .show-more-close-btn {
-
+    background-color: #ec7063;
+    border: none;
+    padding: 0.3rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
 }

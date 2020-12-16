@@ -94,6 +94,7 @@ function createTransactionElement() {
     newDelButton.classList.add('tran-item-del-btn');
     newMoreButton.classList.add('tran-item-more-btn');
 
+
     newDelButton.addEventListener('click', deleteParent);
     newMoreButton.addEventListener('click', displayModalInfo);
 
