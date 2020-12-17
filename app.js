@@ -1,7 +1,7 @@
-let balanceDisplay = document.getElementById('balance-span');
-let transactionList = document.getElementById('transaction-list');
-let transactionNameInput = document.getElementById('item-text-input');
-let transactionAmountInput = document.getElementById('item-amount-input');
+let balanceDisplay = document.getElementById('balance-span'),
+    transactionList = document.getElementById('transaction-list'),
+    transactionNameInput = document.getElementById('item-text-input'),
+    transactionAmountInput = document.getElementById('item-amount-input');
 
 let transactionType, 
     transactionName, 
@@ -70,12 +70,12 @@ function createTransactionObject() {
 };
 
 function createTransactionElement() {
-    let transactionInfo = {...currentTransaction};
-    let newTranDiv = document.createElement('div');
-    let newItemName = document.createElement('p');
-    let newItemAmount = document.createElement('p');
-    let newDelButton = document.createElement('button');
-    let newMoreButton = document.createElement('button');
+    let transactionInfo = {...currentTransaction},
+        newTranDiv = document.createElement('div'),
+        newItemName = document.createElement('p'),
+        newItemAmount = document.createElement('p'),
+        newDelButton = document.createElement('button'),
+        newMoreButton = document.createElement('button');
 
     newItemName.textContent = 'Transaction Name: ' + transactionName;
     newItemAmount.textContent = 'Transaction Amount: ' + transactionAmount;
@@ -108,11 +108,11 @@ function createTransactionElement() {
     }
 
     function displayMoreInfo() {
-        let newShowMoreDiv = document.createElement('div');
-        let newTranDateTxt = document.createElement('p');
-        let newTranIdTxt = document.createElement('p');
-        let newTranTypeTxt = document.createElement('p');
-        let newCloseBtn = document.createElement('button');
+        let newShowMoreDiv = document.createElement('div'),
+            newTranDateTxt = document.createElement('p'),
+            newTranIdTxt = document.createElement('p'),
+            newTranTypeTxt = document.createElement('p'),
+            newCloseBtn = document.createElement('button');
 
         newTranDateTxt.textContent = 'Transaction Date: ' + transactionInfo.Transaction_Date;
         newTranIdTxt.textContent = 'Transaction ID: ' + transactionInfo.Transaction_ID;
